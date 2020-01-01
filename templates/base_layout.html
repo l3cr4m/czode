@@ -1,0 +1,51 @@
+{% load static %}
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'scripts/bootstrap.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'scripts/prism.css' %}" >
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>CZode</title>
+  </head>
+  <body>
+      <header>
+          <nav class="navbar navbar-expand-lg container">
+            <a class="navbar-brand" href="{% url 'home' %}"> <span>CZ</span>.ode </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="{% url 'home' %}">Domů <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="{% url 'tutorials:tutorials' %}">Tutorialy</a>
+                <a class="nav-item nav-link" href="{% url 'about' %}">O projektu</a>
+              </div>
+            </div>
+          </nav>
+      </header>
+
+
+      {% block content %}
+
+      {% endblock %}
+
+
+      {% if request.resolver_match.url_name != 'home' %}
+      <footer></footer>
+      {% endif %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'scripts/jquery.min.js' %}"></script>
+    <script src="{% static 'scripts/bootstrap.min.js' %}"></script>
+    <script src="{% static 'scripts/popper.min.js' %}"></script>
+  </body>
+</html>

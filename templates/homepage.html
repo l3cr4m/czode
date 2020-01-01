@@ -1,0 +1,26 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="billboard">
+    <div class="billboard-transparency">
+      <div class="container">
+        <div class="">
+          <h1>Vyberte si svůj jazyk</h1>
+
+          <div class="list">
+            {% for lang in object_list %}
+              <a class="list-item">
+                <div class="">
+                  <img src="media/{{ lang.logo }}" alt="">
+                  <h2>{{ lang.lang }}</h2>
+                </div>
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

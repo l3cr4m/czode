@@ -31,13 +31,40 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'tutorials',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'height': 500,
+        'toolbar_Custom': [
+             ['Bold', 'Link', 'Unlink', 'Image'],
+        ],},
+
+    'special': {
+        'toolbar': 'Special',
+        'toolbar_Special':[
+            ['Styles', 'Format', 'Bold', 'Italic', 'Underline', 'Strike', 'SpellChecker', 'Undo', 'Redo'],
+            ['Image', 'Flash', 'Table', 'HorizontalRule'],
+            ['TextColor', 'BGColor'],
+            ['Link', 'Unlink', 'CodeSnippet'],
+        ], 'extraPlugins': 'codesnippet',
+    }
+
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

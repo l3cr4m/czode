@@ -1,0 +1,42 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="tutorials tutorial part">
+    <div class="container">
+      <h1>{{ object.name }}</h1>
+
+      <p class="description">{{ object.description }}</p>
+
+      {{ object.content|safe }}
+
+      <nav class="page-navigation" aria-label="Page navigation example">
+        <ul class="pagination justify-content-between">
+          {% if object.previous > 0 %}
+            <li>
+              <a href="{% url 'tutorials:part' object.tutorial.lname object.previous %}" aria-label="Next">
+                <span aria-hidden="true">< Předchozí díl</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+          {% else %}
+            <li></li>
+          {% endif %}
+
+          {% if object.next <= list_count|length %}
+            <li>
+              <a href="{% url 'tutorials:part' object.tutorial.lname object.next %}" aria-label="Next">
+                <span aria-hidden="true">Další díl ></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+          {% else %}
+            <li></li>
+          {% endif %}
+          </ul>
+      </nav>
+    </div>
+  </div>
+
+  <script src="{% static 'scripts/prism.js' %}"></script>
+{% endblock %}

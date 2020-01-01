@@ -1,0 +1,26 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="tutorials">
+    <div class="container">
+      <h1>Tutorialy</h1>
+
+      <div class="cards row">
+        {% for tutorial in object_list %}
+          <div class="col-12 col-lg-4 col-md-6">
+            <div class="card">
+              <img src="../media/{{ tutorial.billboard }}" class="card-img-top" alt="{{ tutorial.name }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ tutorial.name }}</h5>
+                <p class="card-text">{{ tutorial.short_description }}</p>
+                <a href="{% url 'tutorials:tutorial' tutorial.lname %}" class="btn btn-primary">Začít tutorial</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
